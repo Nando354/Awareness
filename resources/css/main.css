@@ -11,7 +11,7 @@
 }
 
 
-/*------------------------Header --------------*/
+/*------------------------Home Header --------------*/
 
 header{
     display: grid;
@@ -143,4 +143,18 @@ footer{
     padding: 20px;
     font-size: 30px;
    
+}
+
+
+   /*-----------------------Thoughts/Responses--------------------*/
+
+.nav-bar{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+
+}
+
+li .home{
+    grid-column: 2/3;
 }
