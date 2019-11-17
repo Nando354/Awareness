@@ -34,7 +34,7 @@ header{
 
 
 
- /*-----------------------Button--------------------*/
+ /*-----------------------Buttons-------------------*/
 
 
 .button {
@@ -65,7 +65,7 @@ header{
 }
 
 
-   /*-----------------------Home--------------------*/
+   /*-----------------------Home-Buttons-Nav--------------------*/
 
 
 
@@ -132,9 +132,11 @@ header{
 footer{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: minmax(10px, 50px);
     background-color:#51c4a1;
     color: white;
+
+
 }
 
 #goal {
@@ -146,15 +148,74 @@ footer{
 }
 
 
-   /*-----------------------Thoughts/Responses--------------------*/
+   /*-----------------------Header-Nav-Bar--------------------*/
 
-.nav-bar{
+.inner-nav-bar{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-
-
+    grid-template-columns: repeat(5, 1fr);
+    height: 30px;
+    background-color: #51c4a1;
+    list-style: none; 
 }
 
-li .home{
+.inner-nav-bar li{
+    align-self: center;
+    justify-self: center;
+}
+
+.home{
+    grid-column: 1/2;
+    background-color: red;
+    
+}
+
+.reminders{
     grid-column: 2/3;
+    background-color: blue;
+}
+
+.tutorial{
+    grid-column: 3/4;
+    background-color: pink;
+}
+
+.data{
+    grid-column: 4/5;
+    background-color: orange;
+}
+
+.logout{
+    grid-column: 5/6;
+    background-color: grey;
+}
+
+   /*-----------------------Thoughts/Responses Main--------------------*/
+
+h2 {
+    font-size: 16px;
+    margin: 20px;
+}
+
+.thoughts-inner{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.thoughts-inner li{
+    align-self: center;
+    justify-self: center;
+    list-style: none;
+}
+
+
+.first-thought{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    background-color: blue;
+}
+
+.first-response{
+    grid-column: 2/3;
+    grid-row: 1/2;
 }
