@@ -92,6 +92,8 @@ header{
     grid-row: 2/3;
     margin-top: 60px;
   }
+
+ 
   
   .button-response{
       grid-column: 5/6;
@@ -208,14 +210,45 @@ h2 {
     list-style: none;
 }
 
+.listed{
+    /* padding: 20px; */
+}
+
+/* .content{
+    border-style: solid;
+    width: 80vw;
+    height: 160px;
+    background-color: blue
+}
+     */
+
+.thoughts-list form{ 
+    border-style: solid;
+    width: 80vw;
+    height: auto;
+    background-color: blue
+}
+
+input {
+    width: 80%;
+    height: 100px;
+}
 
 .first-thought{
     grid-column: 1/2;
     grid-row: 1/2;
-    background-color: blue;
+    /* background-color: blue; */
+    
 }
 
 .first-response{
     grid-column: 2/3;
     grid-row: 1/2;
+    border-style: solid;
+}
+
+ul .contain-1 {
+    border-style: bold;
+    background-color: pink;
+    color: red;
 }
