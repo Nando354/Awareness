@@ -191,64 +191,103 @@ footer{
     background-color: grey;
 }
 
-   /*-----------------------Thoughts/Responses Main--------------------*/
+   /*-----------------------Thoughts/Responses Upper Text--------------------*/
 
 h2 {
     font-size: 16px;
     margin: 20px;
 }
 
-.thoughts-inner{
+
+ /*-----------------------Thoughts/Responses Text Areas-------------------*/
+
+
+ .thoughts-inner{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    
 }
 
 .thoughts-inner li{
-    align-self: center;
-    justify-self: center;
+   
     list-style: none;
+    
 }
 
 .listed{
-    /* padding: 20px; */
+    padding: 20px;  
 }
 
-/* .content{
+
+
+.content{
     border-style: solid;
-    width: 80vw;
+    width: 100vw;
     height: 160px;
     background-color: blue
 }
-     */
 
+.first-thought input{
+    width: 80%;
+    background-color: green;
+    margin-left: 10px;
+}
+
+.first-response input{
+    width: 80%;
+    background-color: green;
+
+}
+
+.thoughtOne {
+    margin-left: 50px;
+
+}
+    
+/* 
 .thoughts-list form{ 
     border-style: solid;
     width: 80vw;
     height: auto;
-    background-color: blue
-}
+    background-color: rgb(43, 146, 89)
+} */
 
-input {
+/* input {
     width: 80%;
     height: 100px;
-}
+} */
 
-.first-thought{
+/* .first-thought{
     grid-column: 1/2;
     grid-row: 1/2;
     /* background-color: blue; */
     
-}
+} */
 
-.first-response{
+/* .first-response{
     grid-column: 2/3;
     grid-row: 1/2;
     border-style: solid;
-}
+} */
 
-ul .contain-1 {
+/* ul .contain-1 {
     border-style: bold;
     background-color: pink;
     color: red;
+    background-color: pink;
+} */
+
+.save-button{
+    color: green;
+    width: 400px;
+    height: 40px;
+    margin-left: 60px;
+}
+
+.add-button{
+    color: rgb(128, 0, 100);
+    width: 400px;
+    height: 40px;
+    margin-left: 400px;
 }
