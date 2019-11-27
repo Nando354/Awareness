@@ -19,16 +19,16 @@
                             <a href='index.html'>Home</a>
                         </li>
                         <li class="reminders">
-                            <a href="Aware/reminders.html">Reminders</a>
+                            <a href="reminders.html">Reminders</a>
                         </li>
                         <li class="tutorial">
-                            <a href="Aware/tutorial.html">Tutorial</a>
+                            <a href="tutorial.html">Tutorial</a>
                         </li>
                         <li class="data">
-                            <a href="Aware/data.html">Data</a>
+                            <a href="data.html">Data</a>
                         </li>
                         <li class="logout">
-                            <a href="Aware/logout.html">Logout</a>
+                            <a href="logout.html">Logout</a>
                         </li>
 
         </ul>
@@ -47,77 +47,30 @@
 
 
     <div class="thoughts-list">
-        <ul class="thoughts-inner content">
-            <div contain-1 contain>
-            <li class="first-thought listed">
-                <form action="">Thought 1<input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            <li class="first-response listed">
-                <form action="">Response 1 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-
+            <ul class="thoughts-inner content">
+                <div contain-1 contain>
+                <li class="first-thought listed">
+                    <label for="thought1">Thought 1</label>
+                        
+                    <textarea id="thoughtOne"></textarea>
             
-            </div>
-        </ul>
-        <button class="save-button">Save</button>
+                </li>
+                <li class="first-response listed">
+                    <label for="response1">Response 1</label>
+                            
+                    <textarea id="responseOne"></textarea>
+                
+                </li>
+                </div>
+            </ul>
 
-        <button class="add-more">+</button>
-    </div>
-        <!-- <ul>
-            <div contain-2 contain>
-            <li class="second-thought listed">
-                <form action="">Thought 2 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            <li class="second-respone listed"> 
-                <form action="">Response 2 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-        </ul>
-            </div>
-            <div contain-3 contain>
-            <li class="third-thought listed">
-                <form action="">Thought 3 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            <li class="third-response listed">
-                <form action="">Response 3 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            </div>
-            <div contain-4 contain>
-            <li class="fourth-thought listed">
-                <form action="">Thought 4 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            <li class="fourth-response listed">
-                <form action="">Response 4 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            </div>
-            <div contain-5 contain>
-            <li class="fifth-thought listed">
-                <form action="">Thought 5 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            <li class="fifth-response listed">
-                <form action="">Response 5 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            </div>
-            <div contain-6 contain>
-            <li class="sixth-thought listed">
-                <form action="">Thought 6 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            <li class="sixth-response listed">
-                <form action="">Response 6 <input type="text" name="thoughtOne" value="Enter Text">
-                </form>
-            </li>
-            </div>
-        </ul> -->
+            <input type="submit" value="Add +" id="add-more"></input>
+
+            <input type="submit" value="Save" id="save-button"></input>
+    
+           
+        </div>
+       
     </div>
 
 <!----------------Nav Header--------------->  
