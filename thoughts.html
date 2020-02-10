@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/test.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
     <title>Aware - Thoughts-Reminders</title>
+
+   
 </head>
 <body>
     <div class= grid-container>
@@ -42,10 +47,10 @@
 <!----------------------Main------------------->
     <div class="thoughts-main">
 
-        <h2>In this section please list the thoughts that you feel do not calm your mind. <br> <br>Please then enter the respsones or thoughts that will direct you to a more positive and productive form of thinking.</h2>
+        <h2>In this section please list the thoughts that you feel do not calm your mind. <br> <br>Please then enter the responses or thoughts that will direct you to a more positive and productive form of thinking.</h2>
     </div>
 
-
+<!-- 
         <div class="thoughts-list">
             <ul class="thoughts-inner content">
                 <div contain-1 contain>
@@ -63,7 +68,7 @@
                 </li>
                 <button>Add</button>
                 </div>
-            </ul>
+            </ul> -->
 <!-- 
             <input type="submit" value="Add +" id="add-more"></input>
 
@@ -71,12 +76,22 @@
      -->
            
      
-
+<!-----------Test firebase------------------------->
         </div>  
+        <div class="content">
+            <form id="add-thoughts-form">
+                <input type="text" name="thought" placeholder="Thought">
+                <input type="text" name="response" placeholder="Response">
+                <button>Add thought/Response</button>
+            </form>
+
+            <ul id="thoughts-list"></ul>
+
+        </div>
        
     </div>
 
-<!----------------Nav Header--------------->  
+<!----------------Nav Footer--------------->  
 
 <footer class="footer-bar">
 
@@ -85,8 +100,33 @@
 </footer>
 
 
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyAJVzP8GRdQ3G5cL6q8keV6RodzOzGtC8k",
+            authDomain: "awareness-18405.firebaseapp.com",
+            databaseURL: "https://awareness-18405.firebaseio.com",
+            projectId: "awareness-18405",
+            storageBucket: "awareness-18405.appspot.com",
+            messagingSenderId: "840100842524",
+            appId: "1:840100842524:web:be135a6863cdec603b63d9"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        db.settings({ timestampsInSnapshots: true });
+      
+    </script>
+        
+    <script src="resources/js/script.js"></script>
+
     
-<script src="resources/js/script.js"></script>
+
 
 
 </body>

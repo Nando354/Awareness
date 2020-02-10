@@ -7,8 +7,17 @@
 .grid-container {
     display: grid;
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
 }
+
+
+
+
+/* 
+body{
+    background: #51c4a1;
+    font-family: ubuntu;
+} */
 
 
 /*------------------------Home Header --------------*/
@@ -143,11 +152,16 @@ footer{
     justify-self: center;
     padding: 20px;
     font-size: 30px;
+    /* color: white; */
    
 }
 
 
    /*-----------------------Header-Nav-Bar--------------------*/
+
+.nav-bar{
+    height: 50px;
+}
 
 .inner-nav-bar{
     display: grid;
@@ -195,9 +209,20 @@ footer{
 
    /*-----------------------Thoughts/Responses Upper Text--------------------*/
 
+.thoughts-main { 
+    align-self: center;
+    justify-self: center;
+
+}
+
+
+
+
 h2 {
     font-size: 16px;
-    margin: 20px;
+    
+
+
 }
 
 
@@ -315,163 +340,70 @@ textarea{
 input, button{
     padding: 7px;
     height: 40px;
-  }
+}
   
-  fieldset { 
+fieldset { 
     margin-bottom: 20px;
-  }
-  
-
-
-
-/*--------------MEDIA QUERIES ----------------*/
-
-
-
-@media screen and (min-width: 760px){
-/*-----------------------Buttons - Query------------------*/
-
-
-.button {
-    width: auto;
-    height: 50px;
-    padding: 15px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: rgb(69, 191, 212);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    align-self: center;
-    justify-self: center;
 }
   
-.button:hover {
-    background-color: #0e6270
-}
-  
-.button:active {
-    background-color: #1b6379;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-} 
-
-
-   /*-----------------------Home-Buttons-Nav-Query-------------------*/
 
 
 
+/*-----------------------Test Thoughts--------------------*/
 
-  .tabs-container{
-      width: 100%;
-  }
 
-  .tabs{
-      display: grid;
-      grid-gap: 20px;
-      grid-template-columns: repeat(7, 1fr);
-      grid-template-rows: repeat(7, auto);
-  }
-
-  .button-tutorial{
-    grid-column: 3/4;
-    grid-row: 3/4;
-  }
- 
-  .button-thoughts{ 
-    grid-column: 4/5;
-    grid-row: 2/3;
-    margin-top: 60px;
-  }
-
- 
-  
-  .button-response{
-      grid-column: 5/6;
-      grid-row: 3/4;
-  }
-
-  .button-reminders{
-      grid-column: 5/6;
-      grid-row:3/4;
-  }
-
-  .button-data{
-      grid-column: 3/4;
-      grid-row: 5/6;
-      margin-bottom: 40px;
-  } 
-
-  .button-logout{
-      grid-column: 5/6;
-      grid-row: 5/6;
-      margin-bottom: 40px;
-      
-  }
-
-  #mind-set {
-      grid-column: 4/5;
-      grid-row: 4/5;
-      width: 150px;
-      height: auto;
-      align-self: center;
-      justify-self: center;
-  } 
-
- /*-----------------------Test CSS-------------------*/
-/* 
-
-h1{
+/* h1{
     color: #fff;
     font-size: 64px;
     letter-spacing: 2px;
     margin-top: 80px;
     text-align: center;
-}
+} */
 
 .content{
     background: #fff;
     max-width: 960px;
     margin: 30px auto;
     padding:  20px 30px;
-    border-radius: 10px 120px 10px 10px;
-    box-shadow: 1px 3px 5px rgba(0,0,0,0.1)
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 25px .5px rgba(0,0,0,0.1)
 }
+
+
+
 
 ul{
     list-style-type: none;
     padding: 0;
 }
 
-li{
+#thoughts-list li{
     padding: 20px;
     background: #f6f6f6;
     font-size: 20px;
     color: #555;
     position: relative;
     border-bottom: 1px solid #e6e6e6;
-    height: 46px;
+    /* height: 46px; */
+    list-style: none;
 }
 
-li:nth-child(even){
+#thoughts-list li:nth-child(even){
     padding: 20px;
     background: #f2f2f2;
 }
 
-li span{
+#thoughts-list li span{
     display: block;
 }
 
-li span:nth-child(2){
+#thoughts-list li span:nth-child(2){
     font-size: 16px;
     margin-top: 6px;
     color: #999;
 }
 
-li div{
+#thoughts-list li div{
     position: absolute;
     top: 0;
     right: 0px;
@@ -484,12 +416,12 @@ li div{
 }
 
 form input{
-    float: left;
-    width: 38%;
+    /* float: left; */
+    width: 100%;
     margin: 0;
     border: 0;
     border-bottom: 1px solid #eee;
-    margin: 0 1%;
+    margin: 50px 5px;
     padding: 10px;
     display: block;
     box-sizing: border-box;
@@ -501,4 +433,39 @@ form input:focus{
     border-bottom: 3px solid #88236f;
     padding-bottom: 8px;
     transition: all ease 0.2s;
-} */
+}
+
+form:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+
+#add-thoughts-form button {
+    width: 30%;
+    height: 50px;
+    padding: 15px 5px 20px;
+    font-size: 14px;
+    /* text-align: center; */
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: rgb(69, 191, 212);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-bottom: 60px;
+    /* align-self: center;
+    justify-self: center; */
+}
+  
+#add-thoughts-form button:hover {
+    background-color: #0e6270
+}
+  
+#add-thoughts-form button:active {
+    background-color: #1b6379;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
