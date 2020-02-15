@@ -227,7 +227,7 @@ h2 {
 
 
  /*-----------------------Thoughts/Responses Text Areas-------------------*/
-
+/* 
 
 .thoughts-inner{
     display: grid;
@@ -264,8 +264,8 @@ label{
 textarea{
     display: block;
     width: 100%;
-    height: auto;
-}
+    height: auto; */
+/* } */
 
 /* order: 0;
     background: #fff;
@@ -285,7 +285,7 @@ textarea{
 
     
 
-#save-button, #add-more{
+/* #save-button, #add-more{
     width: 80px;
     height: 20px;
     padding: 5px 5px 22px 5px;
@@ -308,7 +308,7 @@ textarea{
     background-color: #1b6379;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-}
+} */
 
 /* 
 .button {
@@ -325,22 +325,14 @@ textarea{
     box-shadow: 0 9px #999;
    
 }
-  
-.button:hover {
-    background-color: #0e6270
-}
-  
-.button:active {
-    background-color: #1b6379;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-} */
+*/
 
 
-input, button{
+
+/* input, button{
     padding: 7px;
     height: 40px;
-}
+} */
   
 fieldset { 
     margin-bottom: 20px;
@@ -386,6 +378,8 @@ ul{
     border-bottom: 1px solid #e6e6e6;
     /* height: 46px; */
     list-style: none;
+    height: 180px;
+    position: relative   
 }
 
 #thoughts-list li:nth-child(even){
@@ -395,6 +389,8 @@ ul{
 
 #thoughts-list li span{
     display: block;
+    
+    
 }
 
 #thoughts-list li span:nth-child(2){
@@ -407,9 +403,9 @@ ul{
     position: absolute;
     top: 0;
     right: 0px;
-    background: rgba(255,255,255,0.6);
-    width: 40px;
-    text-align: center;
+    /* background: rgba(255,255,255,0.6); */
+    width: 50px;
+    /* text-align: center; */
     padding: 10px 0;
     font-weight:  bold;
     cursor:  pointer;
@@ -441,11 +437,12 @@ form:after{
     display: block;
 }
 
+/*-----------------------Thoughts/Responses Buttons-------------------*/
 
-#add-thoughts-form button {
-    width: 30%;
+#add-thoughts-form button, #thoughts-list button {
+    /* width: 30%;
     height: 50px;
-    padding: 15px 5px 20px;
+    padding: 15px 5px 20px; */
     font-size: 14px;
     /* text-align: center; */
     cursor: pointer;
@@ -455,17 +452,75 @@ form:after{
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
     /* align-self: center;
     justify-self: center; */
 }
-  
-#add-thoughts-form button:hover {
+
+#add-thoughts-form button {
+    width: 30%;
+    height: 50px;
+    padding: 15px 5px 20px;
+    margin-bottom: 60px;
+} 
+
+#thoughts-list button{
+    width: 300%;
+    height: 50px;
+    /* padding: 5px 5px 5px; */
+    margin:90px 0px 15px 0px;
+    
+    
+}
+
+/* .button:hover {
     background-color: #0e6270
 }
   
-#add-thoughts-form button:active {
+.button:active {
     background-color: #1b6379;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
+}  */
+  
+#add-thoughts-form button:hover , #thoughts-list button:hover {
+    background-color: #0e6270
+}
+  
+#add-thoughts-form button:active, #thoughts-list button.hover {
+    background-color: #1b6379;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+/*-----------------------Counter Div-------------------*/
+#data-id{
+    /* position: relative; */
+    /* padding: 70px; */
+}
+
+.counter {
+    /* padding: 20px; */
+    /* position: absolute; */
+    /* top: 1550px; */
+    bottom: 0;
+    left: 50px;
+    right: 0;
+  
+    
+
+}
+
+#result {
+    /* position: absolute; */
+    bottom: 0;
+    left: 400px;
+    right: 0;
+    margin-top: 70px;
+    font-size: 14px;
+    width: 400px;
+    height: 10px;
+    padding: 40px;
+
 }

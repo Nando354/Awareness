@@ -256,6 +256,7 @@ textarea{
 
 
 
+/*-----------------------Thoughts/Responses Buttons-------------------*/
 
 
     
@@ -317,7 +318,7 @@ input, button{
     height: 40px;
   }
   
-  fieldset { 
+fieldset { 
     margin-bottom: 20px;
   }
   

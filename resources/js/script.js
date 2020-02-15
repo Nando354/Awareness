@@ -44,27 +44,109 @@ function renderThoughts(doc){
     let thought = document.createElement('span');
     let response = document.createElement('span');
     let cross = document.createElement('div');
+    let result = document.createElement('div');
+    let counterDiv = document.createElement('div');
+    let selectButton = document.createElement('button');
+   
 
     li.setAttribute('data-id', doc.id); //create attribute for list element
     thought.textContent = doc.data().thought; //create text to go in span element text will grab thoughts from database
     response.textContent = doc.data().response;
-    cross.textContent = 'x';
+    cross.textContent = 'x'
+
+    result.setAttribute("id", "result")
+    //-----Button------
+    counterDiv.setAttribute("class", "counter")
+    counterDiv.appendChild(selectButton)
+    selectButton.setAttribute('onclick', 'clickCounter()')
+    selectButton.setAttribute('onClick', 'getFormattedDate()')
+    selectButton.type = "button"
+    selectButton.textContent = "Select Thought"
+
+
 
     li.appendChild(thought); //attach thought element to list element
     li.appendChild(response);
     li.appendChild(cross);
+    li.appendChild(result);
+    li.appendChild(counterDiv);
+    
 
 
     thoughtsList.appendChild(li); //append li tag to the const thoughtsList    
 
 //-------------------Deleteing Data-----------------------------
+    
     cross.addEventListener('click', (e) => {
         e.stopPropagation();
         let id = e.target.parentElement.getAttribute('#data-id'); 
         db.collection('mind').doc(id).delete();
     })
+
+
+
+//--------------------Select Thought-----------------
+
+    
+    // select.addEventListener('click', thougthCounter);
+
+    //     count = 0;
+    //     function thoughtCounter() {
+    //         button.onclick(){
+    //             count+=1;
+    //             console.log(count);
+    //         }
+
+    //     };
+    
+};
+
+
+    function getFormattedDate(date) {
+        let year = date.getFullYear();
+        let month = (1 + date.getMonth()).toString().padStart(2, '0');
+        let day = date.getDate().toString().padStart(2, '0');
+
+        return month + '/' + day + '/' + year;
 }
 
+    function clickCounter() {
+        if (typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+            localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+            localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s). " + getFormattedDate();
+        } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+        }
+}
+
+   
+
+
+
+
+
+    // select.addEventListener('click', thougthCounter);
+
+    //     count = 0;
+    //     function thoughtCounter() {
+    //         button.onclick(){
+    //             count+=1;
+    //             console.log(count);
+    //         }
+
+    //     };
+
+
+// var button = document.getElementById("clickme"),
+//   count = 0;
+// button.onclick = function() {
+//   count += 1;
+//   button.innerHTML = "Click me: " + count;
+// };
 
 //-------------------Get Data ----------------------------
 
@@ -103,3 +185,19 @@ db.collection('mind').orderBy('thought').onSnapshot(snapshot => {
         }
     })
  })
+
+//  function clickCounter() {
+//     if (typeof(Storage) !== "undefined") {
+//       if (localStorage.clickcount) {
+//         localStorage.clickcount = Number(localStorage.clickcount)+1;
+//       } else {
+//         localStorage.clickcount = 1;
+//       }
+//       document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+//     } else {
+//       document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+//     }
+//   }
+
+
+ 
