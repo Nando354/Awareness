@@ -311,9 +311,12 @@ textarea{
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 } */
+#selectThought{
+    padding: 7px;
+    height: 40px;
+}
 
-
-input, button{
+input, #listAddButton, #responseAddButton{
     padding: 7px;
     height: 40px;
   }
@@ -422,6 +425,79 @@ fieldset {
       justify-self: center;
   } 
 
+
+/*-------------------Thoughts/Response--------------*/
+
+#responseAddButton{
+  width: 45px;
+  height: 45px;
+  /* color: #3b3a30; */
+  margin-left: 10px; 
+  /* position: relative; */
+  /* position: relative; */
+  bottom: 8px;
+  border-radius: 5px;
+  border-width: 1px;
+  font-size: 52%;
+  padding: 0px;
+}
+
+#responseAddButton {
+    font-size: 150%;
+  }
+  
+  #taskForm #taskAddButton {
+    font-size: 150%;
+  }
+  
+  #editList:active, .editList:active, #responseAddButton:active, #taskAddButton:active, #removeList:active, .removeList:active {
+    box-shadow: inset 0px 0px 20px #c1c1c1;
+    color: blue;
+  }
+
+/*-----------------Modal--------------------*/
+/* #myModal {
+    display: block;
+} */
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
  /*-----------------------Test CSS-------------------*/
 /* 
 
