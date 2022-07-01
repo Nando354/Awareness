@@ -217,12 +217,16 @@ function responseFormProcess(){
 
 let txtInModal01 = pElemInModal.innerText
 
-function toggleOn(){
-  console.log('ToggleOn was set off')
-}
+let modalBox = document.getElementById('modal-content');
 
+function toggleOn(){
+  console.log('ToggleOn was set off');
+  modalBox.style.display = "block";
+  console.log(modalBox)
+}
+console.log(modalBox)
 function toggleOff(){
-  // modal.style.display = 'none';
+  modalBox.style.display = 'none';
   console.log(pElemInModal)
   console.log(pElemInModal.innerText)
   pElemInModal.innerText = "";
@@ -267,18 +271,19 @@ function responseCard(selectedId, selectedText){
           console.log("removeBtn was clicked")
           toggleOff();
         });
+        toggleOn();
 
-        document.addEventListener('click', function(event){
-          if(!event.target.closest("#myModal")
+        // document.addEventListener('click', function(event){
+        //   if(!event.target.closest("#myModal")
           
-          ){
-            console.log('clicked outside of modal')
-          // closeModal()
-          // toggleOff()
-          }
-           },
-          false
-           )
+        //   ){
+        //     console.log('clicked outside of modal')
+        //   // closeModal()
+        //   // toggleOff()
+        //   }
+        //    },
+        //   false
+        //    )
       }
     }
   }
