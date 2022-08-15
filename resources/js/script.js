@@ -16,6 +16,41 @@ let selectedThoughtKey = localStorage.getItem(LOCAL_STORAGE_SELECTED_THOUGHT_VAL
 
 let listToDelete = localStorage.getItem(LOCAL_STORAGE_THOUGHT_KEY);
 
+let firstFormArea = document.getElementById("thoughtFormTxt");
+let secondFormArea = document.getElementById("responseFormTxt");
+
+//Shows thoughts previously entered onload
+window.onload = () => {
+  renderThoughts();
+}
+
+firstFormArea.addEventListener('keyup', function onEvent(e) {
+  if(e.key === "Enter") {
+    secondFormArea.focus();
+    console.log('enter key pressed on first form input');
+  }
+})
+
+secondFormArea.addEventListener('keyup', function onEvent(e) {
+  if(e.key === "Enter") {
+    firstFormArea.focus();
+    console.log('enter key pressed on second form input');
+    scrollToList();
+  }
+})
+
+function scrollToModal() {
+  // var elmnt = document.getElementById("todoForm");
+  var elmnt = document.querySelector("#myModal");
+  elmnt.scrollIntoView({behavior: "smooth", block: "end"});
+}
+
+function scrollToList() {
+  // var elmnt = document.getElementById("todoForm");
+  var elmntList = document.querySelector(".activeList");
+  elmntList.scrollIntoView({behavior: "smooth", block: "end"});
+}
+
 //TODO: The form area where once a list item is typed and button is clicked or enter is pressed, the list value gets added to the createList function which holds the object and also pushed to Local Storage
 function formProcess(){
     console.log("formProcess function was set off")
@@ -33,7 +68,10 @@ function formProcess(){
     thoughtLists.push(thoughtList)
     var lastThoughtInForm = thoughtList.id;
     save();    
+    // firstFormArea.focus();
+    
 }
+
 
 //TODO: List text value is passed as a parameter and returns the object with the text value as a property of name
 function createList(name){
@@ -94,7 +132,7 @@ function renderThoughts(lastThoughtInForm) {
         thoughtElement.appendChild(thoughtSpan);
         //remove button created
         const seeResponseBtn = document.createElement('button');
-        seeResponseBtn.id = 'selectThought';
+        seeResponseBtn.id = 'selectResponseBtn';
         seeResponseBtn.innerText = 'See Response';
         // removeBtn.classList.add('focus-visible-only')
         thoughtElement.appendChild(seeResponseBtn);
@@ -127,6 +165,7 @@ function renderThoughts(lastThoughtInForm) {
           deletedListId = e.target.parentNode.id;
           console.log(thoughtList)
           deletedLi(thoughtList);
+          toggleOff();
         })
     })
 }
@@ -141,13 +180,18 @@ function createResponse(name){
   }
 //response area text area in form
 const newResponseFormItem = document.getElementById('responseForm');
-const pElemInModal = document.getElementById('modalTextSpan');
+// const pElemInModal = document.getElementById('modalTextSpan');
+let pElemInModal = document.createElement('p');
+// console.log(pInModal);
+pElemInModal.setAttribute('id', 'modalTextSpan'); 
+// let pElemInModal = document.getElementById('modalTextSpan');
+console.log(pElemInModal);
 const removeModalTxtBtn = document.getElementById('removeTxtInModal');
 let modal = document.getElementById('myModal');
 const thoughtTxtArea = document.getElementById('thoughtFormTxt');
 const responseTxtArea = document.getElementById('responseFormTxt');
-const modalRspTxtArea = document.getElementById('modal-content');
-console.log(modalRspTxtArea)
+// const modalRspTxtArea = document.getElementById('modal-content');
+// console.log(modalRspTxtArea)
 
 //FORM VALIDATION
 //Click button to submit both thought/response from form
@@ -166,6 +210,9 @@ newResponseFormItem.addEventListener('submit', e =>{
     e.preventDefault();
     formProcess();
     responseFormProcess();
+    firstFormArea.focus();
+    scrollToList();
+    console.log('scroll to List')
   }
 })
 //Press Enter key to submit both thought/response from form
@@ -176,6 +223,8 @@ newResponseFormItem.addEventListener('keypress', ev5 =>{
   console.log(responseTxtArea.value)
   let thoughtTxt = thoughtTxtArea.value;
   let respTxt = responseTxtArea.value;
+  // firstFormArea.focus();
+  // console.log('curson on firt form input off of enter')
     if((ev5.key === "Enter") && (respTxt === "" || thoughtTxt === "")){
       console.log('response is blank, fill in')
       return false;
@@ -185,6 +234,7 @@ newResponseFormItem.addEventListener('keypress', ev5 =>{
       ev5.preventDefault();
       formProcess();
       responseFormProcess();
+      // firstFormArea.focus();
     }
   }
 })
@@ -215,23 +265,44 @@ function responseFormProcess(){
     
 }
 
-let txtInModal01 = pElemInModal.innerText
+// let txtInModal01 = pElemInModal.innerText
 
-let modalBox = document.getElementById('modal-content');
+// let modalBox = document.getElementById('modal-content');
+let modalBox = document.createElement("div");
+modalBox.setAttribute('id', 'modal-content');
+let head = document.getElementsByClassName('openHeadCap');
+var myElemHead = document.querySelector(".closeHeadCap");
 
 function toggleOn(){
   console.log('ToggleOn was set off');
   modalBox.style.display = "block";
-  console.log(modalBox)
+  removeModalTxtBtn.style.display = "block";
+  // document.getElementById('closeHeadCap').id = 'moveHeadCap';
+  // myElemHead.remove();
+  modalBox.classList.add("modal-move");
+  //adds a classname which specifically makes the head cap move
+  myElemHead.classList.add("moveHeadCap");
+  setTimeout(function() {
+    myElemHead.classList.remove("moveHeadCap")
+    modalBox.classList.remove("modal-move");
+  },2000);
+  // myElemHead.classList.remove('moveHeadCap');
+  console.log(head.classList)
+  console.log(modalBox);
+  console.log(head);
 }
-console.log(modalBox)
+// console.log(modalBox)
+
 function toggleOff(){
   modalBox.style.display = 'none';
+  removeModalTxtBtn.style.display = "none";
   console.log(pElemInModal)
   console.log(pElemInModal.innerText)
   pElemInModal.innerText = "";
   console.log(pElemInModal.innerText)
+  // document.getElementById('openHeadCap').id = 'closeHeadCap';
   console.log('ToggleOff was set off')
+  myElemHead.classList.remove("moveHeadCap");
 }
 //Create the response pop up section here, pull the id's to match response and thought so they are relevent to one another.
 //First need to push the response into the thought LS object in responseFormProcess
@@ -260,12 +331,16 @@ function responseCard(selectedId, selectedText){
         console.log(responseInThoughts.name)
         console.log(thoughtId);
         console.log(pElemInModal)
+        //Create the modal bubble where the p element will show up in
+        modal.prepend(modalBox);
+        // modal.appendChild(modalBox);
+        modalBox.appendChild(pElemInModal);
         //Give the p element the response value as text
         pElemInModal.textContent = responseInThoughts.name;
         console.log(responseInThoughts)
-
+        scrollToModal();
         
-        console.log(modalRspTxtArea);
+        // console.log(modalRspTxtArea);
         //Create removeBtn event
         removeModalTxtBtn.addEventListener('click', e => {
           console.log("removeBtn was clicked")

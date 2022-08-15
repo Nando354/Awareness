@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="resources/css/main.css">
-    <title>Aware - Thoughts-Reminders</title>
-</head>
-<body>
-<div class= grid-container>  
-<!----------------Nav Header--------------->  
-
-    <section class="nav-bar">
-        <ul class="inner-nav-bar item">
-                        <li class="home">
-                            <a href='index.html'>Home</a>
-                        </li>
-                        <!-- <li class="reminders">
-                            <a href="reminders.html">Reminders</a>
-                        </li> -->
-                        <li class="tutorial">
-                            <a href="tutorial.html">Tutorial</a>
-                        </li>
-                        <!-- <li class="data">
-                            <a href="data.html">Data</a>
-                        </li> -->
-                        <!-- <li class="logout">
-                            <a href="logout.html">Logout</a>
-                        </li> -->
-        </ul>
-    </section>
-<!----------------------Main------------------->    
-<div class="main-section">
-    <div class="thoughts-main">
-        <h2>In this section please list the thoughts that you feel do not calm your mind. <br> <br>Please then enter the responses or thoughts that will direct you to a more positive and productive form of thinking.</h2>
-        </div>
-            <div class="listForm">
-                <h3>My Thoughts</h3>
-                <form action="#" id="thoughtForm" >
-                    <textarea id="thoughtFormTxt" placeholder='Add Your Thought'></textarea>
-                </form> 
-                <h3>My Response</h3>
-                <form action="#" id="responseForm" >
-                    <textarea id="responseFormTxt" placeholder='Add Your Response'></textarea>
-                    <button id="responseAddButton" type="submit" value="+">Add Thought & Response</button>
-                </form> 
-            </div> 
-            <div class="activeList">
-                <h3>Select Thoughts Area</h3>
-                <ul id="thoughtSection">
-                    <li id="1234">
-                        <span class="spanClass">
-                            I like turtles
-                        </span>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="resources/css/main.css">
+        <title>Aware - Thoughts-Reminders</title>
+    </head>
+    <body>
+        <div class= grid-container>  
+            <!----------------Nav Header--------------->  
+            <section class="nav-bar">
+                <ul class="inner-nav-bar item">
+                    <li class="home">
+                        <a href='index.html'>Home</a>
+                    </li>
+                    <li class="tutorial">
+                        <a href="tutorial.html">Tutorial</a>
                     </li>
                 </ul>
-            </div>
-            <div id ="myModal">
-                <div id="modal-content">
-                    <p id="modalTextSpan"></p>
+            </section>
+                <!----------------------Main------------------->    
+            <div class="main-section">
+                <div class="thoughts-main">
+                    <h2>In this section please list the thoughts that you feel do not calm your mind. <br> <br>Please then enter the responses or thoughts that will direct you to a more positive and productive form of thinking.</h2>
                 </div>
-                <button id="removeTxtInModal">Clear Field</button>
-            </div>
-            <img id="openHeadCap" src="resources/img/openHeadCap.png">
-            <img id="openHeadSkull" src="resources/img/openHeadSkull.png">
+                <div class="listForm">
+                    <h3>My Thoughts</h3>
+                    <form action="#" id="thoughtForm" >
+                        <textarea id="thoughtFormTxt" placeholder='Add Your Thought'></textarea>
+                    </form> 
+                    <h3>My Response</h3>
+                    <form action="#" id="responseForm" >
+                        <textarea id="responseFormTxt" placeholder='Add Your Response'></textarea>
+                        <button id="responseAddButton" type="submit" value="+">Add Thought & Response</button>
+                    </form> 
+                </div> 
+                <div class="activeList">
+                    <h3>Select Thoughts Area</h3>
+                    <ul id="thoughtSection">
+                        <li id="1234">
+                            <span class="spanClass">
+                                I like turtles
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div id ="myModal">
+                    <!-- <div id="modal-content">
+                        <p id="modalTextSpan"></p>
+                    </div> -->
+                    <button id="removeTxtInModal">Clear Field</button>
+                    <img class="closeHeadCap" src="resources/img/openHeadCap.png">
+                    <img id="openHeadSkull" src="resources/img/openHeadSkull.png">
+                </div>
+            </div>    
         </div>
-    </div>
-</div>    
-</div>
-<!----------------Nav Footer--------------->  
-
-<footer class="footer-bar">
-</footer>
-</body>
+        <!----------------Nav Footer--------------->  
+        <footer class="footer">
+            <h1 id="goal">Free Your Mind</h1>
+        </footer>
+    </body>
 </html>
 <script src="resources/js/script.js"></script>

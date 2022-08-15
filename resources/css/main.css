@@ -6,18 +6,12 @@
 
 html {
     font-size: 16px;
-}
-
-.grid-container {
-    display: flex;
-    display: grid;
-    width: 100vw;
-    /* height: 100vh;   */
-    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 
-/*------------------------Home Header --------------*/
+/*------------------------Home Page Section - Header --------------*/
 
 header{
     display: grid;
@@ -40,7 +34,7 @@ contain-1>li{
 }
 
 
- /*-----------------------Buttons-------------------*/
+ /*-----------------------Home Page Section - Buttons-------------------*/
 
 
 .button {
@@ -68,7 +62,7 @@ contain-1>li{
 }
 
 
-   /*-----------------------Home-Buttons-Nav--------------------*/
+   /*-----------------------Home Page Section-Buttons-Nav--------------------*/
 
 
 .tabs-container{
@@ -109,33 +103,44 @@ contain-1>li{
     padding: 15px 60px;
 }  
 
-   /*-----------------------Footer--------------------*/
+   /*-----------------------Home/Thoughts Page Section - Footer--------------------*/
 
-
-
-footer{
+.footer{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: minmax(10px, auto);
     background-color:#51c4a1;
     color: white;
-    /* position: fixed;
-    bottom: 0; */
-    /* margin-bottom: 1rem; */
-    padding-bottom: 0px;
+    position: fixed;
+    bottom: 0;
+    height: 1.2rem;
+    width: 100%;
+    font-size: 2rem;
+    z-index:3;
 }
 
-#goal {
+#goal{
     align-self: center;
     justify-self: center;
-    /* padding: 20px; */
-    font-size: 30px; 
-    /* padding-bottom: 50px; */
+    font-size: 1.2rem;
+    padding: .5rem 0rem .5rem 0rem; 
+}
 
+/*----------------------------------------------------------------*/
+/*---------------------Thoughts Page------------------------------*/
+/*----------------------------------------------------------------*/
+
+.grid-container {
+    /* display: flex;
+    display: grid; */
+    width: 100vw;
+    /* height: 100vh;   */
+    height: 100%;
 }
 
 
-   /*-----------------------Header-Nav-Bar--------------------*/
+
+   /*-----------------------Thoughts Page Header-Nav-Bar--------------------*/
 .nav-bar{
     height: 20px;
 
@@ -166,7 +171,7 @@ footer{
     grid-column: 2/2;
 }
 
-/*---------------------all working section------------------------*/
+/*---------------------Thoughts Page - all working section------------------------*/
 
 .main-section{
     margin: 5%;
@@ -176,10 +181,6 @@ footer{
 }
 
    /*-----------------------Thoughts/Responses Upper Text--------------------*/
-/* .thoughts-main{
-    display: flex;
-    justify-content: center;
-} */
 
 h2 {
     font-size: 1rem;
@@ -196,253 +197,30 @@ h3 {
     font-size: 1.5rem;
     margin-top: 1rem;
     margin-bottom: .3rem;
-    /* justify-content: center; */
+    justify-content: center;
+    align-self: center;
+    display: flex;
 }
 
 
 
- /*-----------------------Thoughts/Responses Text Areas-------------------*/
+ /*-----------------------Thoughts/Responses Form Text Areas-------------------*/
 
 .listForm{
     margin: 5%;
 }
 
-.thoughts-inner{
+/* .thoughts-inner{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
-}
+} */
 
 #thoughtFormTxt, #responseFormTxt{
-    display: block;
+    /* display: block; */
     width: 100%;
     height: auto;
 }
-
-/* .thoughts-inner li{
-   
-    list-style: none;
-    
-} */
-
-/* .listed{
-    padding: 20px;  
-} */
-
-
-
-/* .content{
-    width: 100vw;
-    height: auto;
-    background-color:rgb(91, 193, 211);
-    padding-bottom:8px;
-
-} */
-/* 
-label{
-    display: block;
-    font-size:16px;
-} */
-
-
-
-/* order: 0;
-    background: #fff;
-    border-radius: 10px;
-    padding: 13px;
-    width: 14%;
-    box-shadow: -1px 0px 1px rgba(0,0,0,0.1);
-    font-weight: bold;
-    font-family: ubuntu;
-    letter-spacing: 1px;
-    color: #999;
- */
-
-/*Select thought Area */
-#thoughtSection li{
-    margin: 5px;
-    list-style: none;
-}
-
-#thoughtSection li span {
-    font-size: 1.2rem;
-}
-
-/*-----------------------Thoughts/Responses Buttons-------------------*/
-
-
-    
-/* 
-#save-button, #add-more{
-    width: 80px;
-    height: 20px;
-    padding: 5px 5px 22px 5px;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: rgb(69, 191, 212);
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 3px #999;
-    margin:15px 5px 5px 22px;
-}
-
-#save-button:hover, #add-more:hover{
-    background-color: #0e6270
-}
-  
-#save-button:active, #add-more:active{
-    background-color: #1b6379;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-} */
-
-/* 
-.button {
-    width: 100%;
-    height: 50px;
-    padding: 15px 25px;
-    font-size: 24px;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: rgb(69, 191, 212);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-   
-}
-  
-.button:hover {
-    background-color: #0e6270
-}
-  
-.button:active {
-    background-color: #1b6379;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-} */
-
-
-/* input, #listAddButton, #responseAddButton{
-    padding: 7px;
-    height: 40px;
-} */
-  
-/* fieldset { 
-    margin-bottom: 20px;
-} */
-  
-
-
-
-/*--------------MEDIA QUERIES ----------------*/
-
-
-
-@media screen and (min-width: 760px){
-/*-----------------------Buttons - MEDIA QUERIES------------------*/
-
-
-.button {
-    width: auto;
-    height: 50px;
-    padding: 15px 25px;
-    font-size: 24px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    color: #fff;
-    background-color: rgb(69, 191, 212);
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    align-self: center;
-    justify-self: center;
-}
-  
-.button:hover {
-    background-color: #0e6270
-}
-  
-.button:active {
-    background-color: #1b6379;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-} 
-
-
-   /*-----------------------Home-Buttons-Nav-MEDIA QUERIES-------------------*/
-
-
-
-
-  .tabs-container{
-      width: 100%;
-  }
-
-  .tabs{
-      display: grid;
-      grid-gap: 20px;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, auto);
-  }
-
-  .button-thoughts{ 
-    grid-column: 2/2;
-    grid-row: 1/1;
-    align-self: center;
-    justify-self: center;
-    /* margin-top: 60px; */
-  }
-
-  #mind-set {
-    grid-column: 2/2;
-    grid-row: 2/2;
-    width: 300px;
-    height: auto;
-    align-self: center;
-    justify-self: center;
-  } 
-
-  .button-tutorial{
-    grid-column: 2/2;
-    grid-row: 3/3;
-    align-self: center;
-    justify-self: center;
-    padding: 15px 90px;
-  }
-
- 
-/*   
-  .button-response{
-      grid-column: 5/6;
-      grid-row: 3/4;
-  }
-
-  .button-reminders{
-      grid-column: 5/6;
-      grid-row:3/4;
-  }
-
-  .button-data{
-      grid-column: 3/4;
-      grid-row: 5/6;
-      margin-bottom: 40px;
-  } 
-
-  .button-logout{
-      grid-column: 5/6;
-      grid-row: 5/6;
-      margin-bottom: 40px;
-      
-  } */
-
-
-}
-/*-------------END OF 760 MEDIA QUERIES ----------------*/
-
 
 /*-------------------Thoughts/Response Forms--------------*/
 
@@ -454,51 +232,96 @@ label{
   border-radius: 5px;
   border-width: 1px;
   font-size: 80%;
-  padding: 0px;
-  margin-top: 1rem;
+  /* padding: 0px; */
+  /* margin-top: 1rem; */
+  margin: 1rem 0px 5px 0px;
 }
 
 /*-------------------Modal Button - Clear Field--------------*/
 
 #removeTxtInModal{
+    display: none;
     width: 4.5rem;
     height: 1.5rem;
-    bottom: 8px;
+    /* bottom: 8px; */
     border-radius: 5px;
     border-width: 1px;
     font-size: 80%;
     padding: 0px;
     margin-top: 1rem;
+    z-index: 1;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
+    /* display: inline-block; */
+    animation: removeBtnPopOut 3.1s linear;
+    z-index: 2;
   }
-
-/* #responseAddButton {
-    font-size: 150%;
-}
-   */
-/* #taskForm #taskAddButton {
-    font-size: 150%;
-} */
-  
-/* #editList:active, .editList:active, #responseAddButton:active, #taskAddButton:active, #removeList:active, .removeList:active {
-    box-shadow: inset 0px 0px 20px #c1c1c1;
-    color: blue;
-}   */
-
-
 /*-------------------Select Thoughts Area in Active List--------------*/
+
+
+
+
 .activeList {
+    /* min-width: 300px;
+    width: auto; */
     margin: 5%;
-    /* display: flex; */
-    /* justify-content: center;
-    flex-direction: column; */
+    display: flex;
+    /* display: inline-block; */
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    flex-wrap: wrap;
+    /* padding: 400px; */
+    margin: 0;
+    padding: 0;
+
 }
 
-/* #selectThought{
-    padding: 7px;
-    height: 40px;
-} */
+#thoughtSection ul{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-content: space-between;
+    margin: 0rem 5rem 0rem 5rem;
+    flex-wrap: wrap;
+    /* width: 100px; */
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  
 
-#selectThought {
+}
+
+/*Select thought Area */
+#thoughtSection li{
+    /* margin: 5px; */
+    /* list-style: none; */
+    display: flex;
+    /* justify-content: space-evenly; */
+    /* align-self: center; */
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    margin: 2rem 1rem 2rem 1rem;
+    align-content: space-between;
+    /* display: grid; */
+    /* grid-template-columns: 1fr .5fr 20px; */
+    /* grid-template-columns: repeat(auto-fit minmax(20px, 1000px)); */
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: black;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: rgb(230, 234, 239);
+    
+}
+
+#thoughtSection li span {
+    font-size: 1.2rem;
+    margin: 5px 1rem 5px 0px;
+}
+
+#selectResponseBtn {
     width: 6rem;
     height: 1.5rem;
     bottom: 8px;
@@ -506,7 +329,8 @@ label{
     border-width: 1px;
     font-size: 80%;
     padding: 0px;
-    margin: 1rem .5rem .5rem;
+    margin: 5px 1rem 0 0;
+    /* margin: 0rem 0rem 0rem 1rem; */
 }
 
 #deleteBtn {
@@ -514,79 +338,79 @@ label{
     border-radius: 5px;
     border-width: 1.4px;
     font-size: .9rem;
+    width: 1.2rem;
+    margin-left: 1rem;
+    margin: 5px 0px 5px 0px;
 }
 
 /*-----------------Modal Area--------------------*/
 #myModal {
    margin: 5%;
+   height: auto;
+   /* display: grid;
+   grid-template-rows: auto 40px; */
+   display: flex;
+   flex-direction: column;
 }
 
 /* The Modal (background) */
-.modal {
+/* .modal { */
     /* display: none; Hidden by default */
-    position: fixed; /* Stay in place */
+    /* position: fixed; Stay in place
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
+    /* padding-top: 100px; Location of the box */
+    /* left: 0; */
+    /* top: 0; */
+    /* width: 100%; Full width */
+    /* height: 100%; Full height */
+    /* overflow: auto; Enable scroll if needed */
+    /* background-color: rgb(0,0,0); Fallback color */
+    /* background-color: rgba(0,0,0,0.4); Black w/ opacity */
+  /* } */ 
   
-  /* Modal Content */
+  /* Modal Content is the pop up and should pop out as a small modal increasing in size as it moves up in the screen as it fully shows the thought response*/
   #modal-content {
+    bottom: 1000px;
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
     border-radius: 15px;
     border: solid #888;
     width: 100%;
-    display: none;
-    animation: popOut 2.5s ease forwards;
+    /* display: flex; */
+    /* justify-content: center; */
+    animation: popOut 2.5s linear;
+    height: auto;
+    width: auto; 
   }
-  
-/* The Close Button */
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
+  /* .modal-move { */
+    /* animation: popOut 2.5s ease-in-out fowards; */
+  /* } */
+  /*The skull revealing the brain with no head cap this has no animation since it just has no movement.*/
   #openHeadSkull {
     height: 300px;
     width: 300px;
-    /* position: relative; */
-    bottom: 0px;
+    position: relative;
+    bottom: 199px;
     margin-left: 8px;
-    /* margin-left: 3rem; */
-    display: flex;
     justify-content: center;
     align-self: center;
+    z-index: 1;
   }
-
-  #openHeadCap {
+  /*The head cap just swings open revealing the brain therefore the z index 1 so it covers the brain
+  */
+  .moveHeadCap {
+    animation: swing 2s linear alternate;
+  }
+  /*The head cap swings closed over the brain section*/
+  .closeHeadCap {
     height: 171px;
     width: 171px;
-    position: relative;
-    /* left: 60px; */
     top: 199px;
-    z-index: 1;
+    z-index: 2;
     transform-origin:  6px 114px;
-    animation: swing 2.5s linear alternate;
+    /* animation: swing 2.5s linear alternate; */
     /* animation-direction:alternate; */
-    /* margin-left: 3rem; */
-    display: flex;
     justify-content: center;
     align-self: center;
   }
@@ -595,17 +419,116 @@ label{
 
   @keyframes swing{
     0%{transform: rotateZ(0deg)}
-    20%{transform: rotateZ(-40deg)}
+    30%{transform: rotateZ(-50deg)}
     60%{transform: rotateZ(-75deg)}
     80%{transform: rotateZ(-120deg)}
+    100%{transform: rotateZ(-125deg)}
   }
 
-  @keyframes popOut{
-    0%{transform:translateY(400px) scale(0)}
+  /* @keyframes popOut{
+    0%{transform:translateY(800px) scale(0)}
     15%{transform:translateY(300px) scale(0.2)}
     30%{transform:translateY(200px) scale(0.4)}
     45%{transform:translateY(150px) scale(0.6)}
     60%{transform:translateY(100px) scale(0.8)}
-    1000%{transform:translateY(0px) scale(1)}
-   
+    100%{transform:translateY(0px) scale(1)}
+  } */
+
+  @keyframes popOut{
+    0%{transform:translateY(300px) scale(0)}
+    15%{transform:translateY(200px) scale(0.2)}
+    30%{transform:translateY(100px) scale(0.4)}
+    45%{transform:translateY(75px) scale(0.6)}
+    65%{transform:translateY(30px) scale(0.8)}
+    100%{transform:translateY(0px) scale(1)}
   }
+
+  @keyframes removeBtnPopOut{
+    0%{transform:translateY(100px) scale(0)}
+    15%{transform:translateY(70px) scale(0.2)}
+    30%{transform:translateY(50px) scale(0.3)}
+    45%{transform:translateY(30px) scale(0.5)}
+    65%{transform:translateY(20px) scale(0.7)}
+    75%{transform:translateY(10px) scale(0.8)}
+    100%{transform:translateY(0px) scale(1)}
+  }
+
+  /*--------------MEDIA QUERIES ----------------*/
+  /*--------------MEDIA QUERIES ----------------*/
+  /*--------------MEDIA QUERIES ----------------*/
+  /*--------------MEDIA QUERIES ----------------*/
+
+/* @media screen and (min-width: 760px){ */
+    /*-----------------------Buttons - MEDIA QUERIES------------------*/
+    
+    
+    /* .button {
+        width: auto;
+        height: 50px;
+        padding: 15px 25px;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: rgb(69, 191, 212);
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        align-self: center;
+        justify-self: center;
+    }
+      
+    .button:hover {
+        background-color: #0e6270
+    }
+      
+    .button:active {
+        background-color: #1b6379;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }  */
+    
+    
+       /*-----------------------Home-Buttons-Nav-MEDIA QUERIES-------------------*/
+    
+    
+    
+/*     
+      .tabs-container{
+          width: 100%;
+      }
+    
+      .tabs{
+          display: grid;
+          grid-gap: 20px;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(3, auto);
+      }
+    
+      .button-thoughts{ 
+        grid-column: 2/2;
+        grid-row: 1/1;
+        align-self: center;
+        justify-self: center;
+        /* margin-top: 60px; */
+      /* }
+    
+      #mind-set {
+        grid-column: 2/2;
+        grid-row: 2/2;
+        width: 300px;
+        height: auto;
+        align-self: center;
+        justify-self: center;
+      } 
+    
+      .button-tutorial{
+        grid-column: 2/2;
+        grid-row: 3/3;
+        align-self: center;
+        justify-self: center;
+        padding: 15px 90px;
+      }
+    } */ 
+    /*-------------END OF 760 MEDIA QUERIES ----------------*/
