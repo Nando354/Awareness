@@ -1,36 +1,37 @@
-//Thought List <ul> id
+//variable references the <ul> element where the list of thoughts is rendered
 const thoughtSections = document.getElementById('thoughtSection');
-// First Form Area
+// variable for First Form Area for thoughts
 const newThoughtFormItem = document.getElementById('thoughtForm');
 
-//Local Storage KEY
+//Local Storage KEY variable
 const LOCAL_STORAGE_THOUGHT_KEY = 'thought.thoughtLists';
-//Local Storage VALUE
+//Local Storage VALUE variable
 //Holds the object with other key value pairs
 const LOCAL_STORAGE_SELECTED_THOUGHT_VALUE = 
 'thought.keyValueThoughtObj';
-//
+//Variable gets the string from Local Storage and converts it to an object array with parse
 let thoughtLists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_THOUGHT_KEY)) || [];
-
-let selectedThoughtKey = localStorage.getItem(LOCAL_STORAGE_SELECTED_THOUGHT_VALUE);
+//Variable gets the local storage value
+let selectedThoughtValue= localStorage.getItem(LOCAL_STORAGE_SELECTED_THOUGHT_VALUE);
 
 let listToDelete = localStorage.getItem(LOCAL_STORAGE_THOUGHT_KEY);
-
+//Variables for the form text areas where thoughts are entered
 let firstFormArea = document.getElementById("thoughtFormTxt");
+//Variables for the form text areas where responses are entered
 let secondFormArea = document.getElementById("responseFormTxt");
 
-//Shows thoughts previously entered onload
+//Shows thoughts previously entered ..onload
 window.onload = () => {
   renderThoughts();
 }
-
+//Focuses on second form area once "Enter" is clicked on first form area
 firstFormArea.addEventListener('keyup', function onEvent(e) {
   if(e.key === "Enter") {
     secondFormArea.focus();
     console.log('enter key pressed on first form input');
   }
 })
-
+//On second form area once "Enter" is clicked, scrolls to list of thoughts and focus goes to first form area to enter a new thought
 secondFormArea.addEventListener('keyup', function onEvent(e) {
   if(e.key === "Enter") {
     firstFormArea.focus();
@@ -38,48 +39,46 @@ secondFormArea.addEventListener('keyup', function onEvent(e) {
     scrollToList();
   }
 })
-
+//Function scrolls to Modal Area where response animation pops up
 function scrollToModal() {
   // var elmnt = document.getElementById("todoForm");
   var elmnt = document.querySelector("#myModal");
   elmnt.scrollIntoView({behavior: "smooth", block: "end"});
 }
-
+//Function scrolls to Select Thoughts Area List
 function scrollToList() {
   // var elmnt = document.getElementById("todoForm");
   var elmntList = document.querySelector(".activeList");
   elmntList.scrollIntoView({behavior: "smooth", block: "end"});
 }
 
-//TODO: The form area where once a list item is typed and button is clicked or enter is pressed, the list value gets added to the createList function which holds the object and also pushed to Local Storage
+//TODO: Initially called from the form area newResponseFormItem eventListener button/enter where once a thought and response list item is typed and button is clicked or enter is pressed, the list value here in this function gets passed to the createList function which holds the object and also gets pushed to Local Storage
 function formProcess(){
     console.log("formProcess function was set off")
-    //Variable that grabs the text entered in the form, thoughtFormTxt is the id of the text area in the form
+    //Variable that grabs the text entered in the thought form, thoughtFormTxt is the id of the text area in the form
     let listName = thoughtFormTxt.value;
     console.log(listName);
+    //Variable grabs text from response form
     let responseName = responseFormTxt.value;
     console.log(responseName);
     if(listName == null || listName === '') return
-  //creates a variable named list with a createList function with the form text value as the parameter
+    //creates a variable named thoughtList with a createList function with the form text value as the parameter
     let thoughtList = createList(listName);
-  //clears the form text value input area of the form text value so new text can be entered
+    //clears the form text value input area of the form text value so new text can be entered
     thoughtFormTxt.value = null;
-  //pushes the list into the array lists or the object stored in local storage
+    //pushes the list into the array lists or the object stored in local storage
     thoughtLists.push(thoughtList)
+    //variable of the id of the last thought created
     var lastThoughtInForm = thoughtList.id;
     save();    
-    // firstFormArea.focus();
-    
 }
 
 
-//TODO: List text value is passed as a parameter and returns the object with the text value as a property of name
+//TODO: Called from the formProcess function, the listName text value is passed as a parameter and returns the object with the name text value as a property of name
 function createList(name){
     return {
       id: Date.now().toString(),
       name: name,
-      completedTasks: false,
-      displayTasks: false,
       response: []
     }
 }
@@ -89,11 +88,11 @@ function saveAndRender(){
     renderThoughts();
 }
 
-//TODO: Sets the key to the LOCAL STORAGE variable we named earlier and the object lists is stored to Local Storage as a string 
+//TODO: Sets the key to the LOCAL_STORAGE_THOUGHT_KEY variable which is always thought.thoughtLists and the object lists is stored to Local Storage value as an object string 
 function save() {
     localStorage.setItem(LOCAL_STORAGE_THOUGHT_KEY, JSON.stringify(thoughtLists));
 }
-
+//Loops throught thoughts list and if it finds the matching id then deletes it
 function deletedLi(){
   for(var i =0; i < thoughtLists.length; i++)
     if(thoughtLists[i].id === deletedListId) {
@@ -105,16 +104,14 @@ function deletedLi(){
     }
   saveAndRender();
 }
-const arrayCount = thoughtLists[thoughtLists.length];
-const lastArray = thoughtLists[thoughtLists.length - 1];
 
-//TODO: Will stop list from duplicating some list values entered on the <ul> unordered list with the ID name newlist, before we call a forEach function in renderLists()
+//TODO: Will stop list from duplicating some list values that show up in thoughtSection id in the Select Thoughts Area, before we call a forEach function in renderThoughts() to create the elements of the select thoughts.
 function clearElement(thoughtSections) {
     while (thoughtSections.firstChild) {
       thoughtSections.removeChild(thoughtSections.firstChild)
     }
 }
-
+//TODO: Called on onload and from saveAndRender function. Will create the thought list items and 'see response' button using the DOM for each thought entered into the form.
 function renderThoughts(lastThoughtInForm) {
     console.log('renderThoughts function set off')
     // console.log(lastThoughtInForm)
@@ -134,64 +131,73 @@ function renderThoughts(lastThoughtInForm) {
         const seeResponseBtn = document.createElement('button');
         seeResponseBtn.id = 'selectResponseBtn';
         seeResponseBtn.innerText = 'See Response';
-        // removeBtn.classList.add('focus-visible-only')
         thoughtElement.appendChild(seeResponseBtn);
         //delete thought/response
         const deleteThoughtRespBtn = document.createElement('button');
         deleteThoughtRespBtn.id = 'deleteBtn';
         deleteThoughtRespBtn.innerText = 'X';
         thoughtElement.appendChild(deleteThoughtRespBtn);
-        // console.log(thoughtSections)
-        thoughtSections.appendChild(thoughtElement)
-        // console.log(thoughtList)
+        thoughtSections.appendChild(thoughtElement);
 
-        //TODO: Event when the span text is clicked in the thoughts area, we want it to display the response to that particular thought.
+        //TODO: Event when the see response button is clicked in the thoughts area, we want it to display the response to that particular thought.
         seeResponseBtn.addEventListener('click', e => {
             console.log('response button has been clicked')
             //the button element with id selectThought from the thought list selected
-              console.log(e.target)
-              console.log(e.target.parentNode.firstChild.innerText)
-              //id of selected thought list item
-              var selectedId = e.target.parentNode.id;
-              //text of selected thought list tem
-              var selectedText = e.target.parentNode.firstChild.innerText;
-              console.log(selectedId)
-              console.log(selectedText)
-              //id and text of selected thought list item is passed into the responseCard function
-              responseCard(selectedId, selectedText);
+            //id of selected thought list item
+            var selectedId = e.target.parentNode.id;
+            //text of selected thought list item
+            var selectedText = e.target.parentNode.firstChild.innerText;
+            //id and text of selected thought list item is passed into the responseCard function
+            responseCard(selectedId, selectedText);
+            highlightSelectedThought(thoughtList);
+            hideAllExceptSelected(thoughtList);
         }, false);
-
+        //delete button event listener also toggles off the modal
         deleteThoughtRespBtn.addEventListener('click', e => {
           deletedListId = e.target.parentNode.id;
-          console.log(thoughtList)
           deletedLi(thoughtList);
           toggleOff();
         })
     })
 }
 
-//Function for a task value to be a parameter passed into the object as a property of name
+//Function highlights the selected thought when See Response button is clicked
+function highlightSelectedThought(thoughtList) {
+  console.log(thoughtList);
+  const targetLi = document.getElementById(thoughtList.id);
+  console.log(targetLi);
+  targetLi.style.backgroundColor = "#90deedff";
+}
+//Function hides all thoughts except the selected thought when See Response button is clicked
+function hideAllExceptSelected(selectedThought){
+  console.log('hideAllExceptSelected was set off')
+  thoughtLists.forEach(thoughtList => {
+    if(thoughtList.id !== selectedThought.id){
+      const targetLi = document.getElementById(thoughtList.id);
+      console.log(targetLi);
+      targetLi.style.display = "none";
+    }
+  });
+}
+
+//Function for a response text to be a parameter name passed into the object as a property of name
 function createResponse(name){
     return {
       id: Date.now().toString(),
       name: name,
-      complete: false
     }
   }
-//response area text area in form
+//variable represents the id for the entire html response form area 
 const newResponseFormItem = document.getElementById('responseForm');
-// const pElemInModal = document.getElementById('modalTextSpan');
+//Create modal using DOM
 let pElemInModal = document.createElement('p');
 // console.log(pInModal);
 pElemInModal.setAttribute('id', 'modalTextSpan'); 
-// let pElemInModal = document.getElementById('modalTextSpan');
-console.log(pElemInModal);
+//variable clear modal button
 const removeModalTxtBtn = document.getElementById('removeTxtInModal');
 let modal = document.getElementById('myModal');
 const thoughtTxtArea = document.getElementById('thoughtFormTxt');
 const responseTxtArea = document.getElementById('responseFormTxt');
-// const modalRspTxtArea = document.getElementById('modal-content');
-// console.log(modalRspTxtArea)
 
 //FORM VALIDATION
 //Click button to submit both thought/response from form
@@ -307,25 +313,25 @@ function toggleOff(){
 //Create the response pop up section here, pull the id's to match response and thought so they are relevent to one another.
 //First need to push the response into the thought LS object in responseFormProcess
 //Create the modal usiing DOM
+//TODO: Called from the seeResponseBtn in the renderThoughts function, the selected ID and Text are passed into the responseCard function. A for loop is used to iterate throught the thoughts and another for loop iterates throught the response of that thought. The response name is then passed into the modal. Modal is created using DOM
 function responseCard(selectedId, selectedText){
   console.log("responseCard was set off");
-  
+  //loops throught thoughts
   for (var i =0; i<thoughtLists.length; i++){
     if(thoughtLists[i].name === selectedText){
       console.log(thoughtLists[i].name + " has been selected during renderTasks")
+      //loops throught response in selected thought
       for(let n = 0, t = thoughtLists[i].response.length; n < t; n++){
-        //The response list object related to the selected thoughts list item
+        //variable responses in thought list
         var responseInThoughts = thoughtLists[i].response[n];
         //text in response
         let responseToThought = responseInThoughts.name
         console.log(responseToThought);
         var arrayOfResponses = thoughtLists[i].response[n];
-        //thought list name
+        //variable thought list name
         var listName = thoughtLists[i].name;
         console.log(listName);
-        var listTask = thoughtLists[i].completedTasks;
-        //false in response.complete
-        console.log(listTask)
+        //variable thought list id
         var thoughtId = thoughtLists[i].id;
         console.log(responseInThoughts)
         console.log(responseInThoughts.name)
@@ -339,12 +345,11 @@ function responseCard(selectedId, selectedText){
         pElemInModal.textContent = responseInThoughts.name;
         console.log(responseInThoughts)
         scrollToModal();
-        
-        // console.log(modalRspTxtArea);
-        //Create removeBtn event
+        //Create clear modal event listener via toggle off
         removeModalTxtBtn.addEventListener('click', e => {
           console.log("removeBtn was clicked")
           toggleOff();
+          renderThoughts();
         });
         toggleOn();
 

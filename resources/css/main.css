@@ -81,7 +81,7 @@ contain-1>li{
     grid-row: 1/1;
     align-self: center;
     justify-self: center;
-    margin-top: 2rem;
+    margin-top: 6rem;
 }
 
 #mind-set {
@@ -181,6 +181,10 @@ contain-1>li{
 }
 
    /*-----------------------Thoughts/Responses Upper Text--------------------*/
+.thoughts-main{
+    display: flex;
+    justify-content: center; 
+}
 
 h2 {
     font-size: 1rem;
