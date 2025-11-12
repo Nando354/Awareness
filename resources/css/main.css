@@ -16,9 +16,10 @@ html {
 header{
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: minmax(10px, auto);
     background-color:#51c4a1;
     color: white;
+    width: 100%;
 }
 
 #name {
@@ -26,7 +27,7 @@ header{
     justify-self: center;
     padding: 20px;
     font-size: 40px;
-    padding-right: 50px; 
+    /* padding-right: 50px;  */
 }
 
 contain-1>li{
@@ -71,7 +72,7 @@ contain-1>li{
 
 .tabs{
     display: grid;
-    grid-gap: 20px;
+    /* grid-gap: 20px; */
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
 }
@@ -82,6 +83,7 @@ contain-1>li{
     align-self: center;
     justify-self: center;
     margin-top: 6rem;
+    padding-bottom: 2rem;
 }
 
 #mind-set {
@@ -223,7 +225,30 @@ h3 {
 #thoughtFormTxt, #responseFormTxt{
     /* display: block; */
     width: 100%;
-    height: auto;
+    min-height: 38px;
+    max-height: auto;
+    resize: vertical;
+}
+
+textarea {
+    width: 100%;
+    height: 12px;;
+    resize: vertical;
+    font-size: 20px;
+    padding: 10px 10px 0px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    font-family: Arial, sans-serif;
+    margin-bottom: 1rem;
+}
+
+/* Placeholder text style */
+#thoughtFormTxt textarea::placeholder, #responseFormTxt textarea::placeholder {
+    font-size: 1rem;
+    padding: 10px;
+    color: grey;
+    opacity: 1; /* Firefox */
 }
 
 /*-------------------Thoughts/Response Forms--------------*/
@@ -283,12 +308,12 @@ h3 {
 }
 
 #thoughtSection ul{
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-self: center;
-    align-content: space-between;
+    align-items: center;
+    align-content: space-between; */
     margin: 0rem 5rem 0rem 5rem;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* width: 100px; */
     margin: 0;
     padding: 0;
@@ -299,30 +324,40 @@ h3 {
 
 /*Select thought Area */
 #thoughtSection li{
-    /* margin: 5px; */
-    /* list-style: none; */
     display: flex;
-    /* justify-content: space-evenly; */
-    /* align-self: center; */
-    /* flex-direction: row; */
-    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-wrap: wrap; */
     margin: 2rem 1rem 2rem 1rem;
-    align-content: space-between;
-    /* display: grid; */
-    /* grid-template-columns: 1fr .5fr 20px; */
-    /* grid-template-columns: repeat(auto-fit minmax(20px, 1000px)); */
+    /* align-content: space-between; */
     border-style: solid;
     border-width: 1.5px;
     border-color: black;
     padding: 1rem;
     border-radius: 5px;
-    background-color: rgb(230, 234, 239);
-    
+    background-color: rgb(230, 234, 239); 
+    max-width: 1200px;
 }
 
 #thoughtSection li span {
     font-size: 1.2rem;
     margin: 5px 1rem 5px 0px;
+    display: flex;
+    /* justify-content: flex-start;
+    align-self: center; */
+    flex-grow: 1;
+    min-width: 10px;
+}
+
+.thoughtsButtonsDiv {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+    /* justify-content: flex-end;
+    align-self: center; */
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
 }
 
 #selectResponseBtn {
@@ -461,6 +496,47 @@ h3 {
   /*--------------MEDIA QUERIES ----------------*/
   /*--------------MEDIA QUERIES ----------------*/
   /*--------------MEDIA QUERIES ----------------*/
+  @media (max-width: 600px){
+    #thoughtSection li{
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+    #thoughtSection li span{
+        margin: 5px 0px 0px 0px;
+        justify-content: center;
+    }
+    .thoughtsButtonsDiv {
+        justify-content: center;
+        margin-top: 15px;
+    }
+    #responseForm {
+        display: flex;
+        flex-direction: column;
+    }
+    #responseAddButton{
+        width: 100%;
+        height: 2rem;
+        font-size: 90%;
+        margin: 1rem 0px 5px 0px;
+    }
+  }
+
+  @media (max-width:425px){
+    #thoughtSection li{
+        margin: 1rem 0rem 1rem 0rem;
+        padding: .5rem;
+    }
+    #thoughtSection li span{
+        font-size: 1rem;
+    }
+    #selectResponseBtn, #deleteBtn {
+        width: 5rem;
+        height: 1.2rem;
+        font-size: 70%;
+        margin: 0px;
+    }
+  }
 
 /* @media screen and (min-width: 760px){ */
     /*-----------------------Buttons - MEDIA QUERIES------------------*/

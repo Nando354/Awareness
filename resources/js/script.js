@@ -127,34 +127,41 @@ function renderThoughts(lastThoughtInForm) {
         thoughtSpan.innerText = thoughtList.name;
         //append span to li
         thoughtElement.appendChild(thoughtSpan);
+        //create div to hold buttons
+        const thoughtsButtonsDiv = document.createElement('div');
+        thoughtsButtonsDiv.classList.add('thoughtsButtonsDiv');
+        thoughtElement.appendChild(thoughtsButtonsDiv);
         //remove button created
         const seeResponseBtn = document.createElement('button');
         seeResponseBtn.id = 'selectResponseBtn';
         seeResponseBtn.innerText = 'See Response';
-        thoughtElement.appendChild(seeResponseBtn);
+        thoughtsButtonsDiv.appendChild(seeResponseBtn);
         //delete thought/response
         const deleteThoughtRespBtn = document.createElement('button');
         deleteThoughtRespBtn.id = 'deleteBtn';
         deleteThoughtRespBtn.innerText = 'X';
-        thoughtElement.appendChild(deleteThoughtRespBtn);
+        thoughtsButtonsDiv.appendChild(deleteThoughtRespBtn);
         thoughtSections.appendChild(thoughtElement);
+
 
         //TODO: Event when the see response button is clicked in the thoughts area, we want it to display the response to that particular thought.
         seeResponseBtn.addEventListener('click', e => {
             console.log('response button has been clicked')
             //the button element with id selectThought from the thought list selected
             //id of selected thought list item
-            var selectedId = e.target.parentNode.id;
+            var selectedId = e.target.parentNode.parentNode.id;
+            console.log(selectedId);
             //text of selected thought list item
-            var selectedText = e.target.parentNode.firstChild.innerText;
-            //id and text of selected thought list item is passed into the responseCard function
-            responseCard(selectedId, selectedText);
+            var selectedText = e.target.parentNode.parentNode.firstChild.innerText;
             highlightSelectedThought(thoughtList);
             hideAllExceptSelected(thoughtList);
+            hideButtonOnSelectedThought();
+            //id and text of selected thought list item is passed into the responseCard function
+            responseCard(selectedId, selectedText);
         }, false);
         //delete button event listener also toggles off the modal
         deleteThoughtRespBtn.addEventListener('click', e => {
-          deletedListId = e.target.parentNode.id;
+          deletedListId = e.target.parentNode.parentNode.id;
           deletedLi(thoughtList);
           toggleOff();
         })
@@ -177,6 +184,16 @@ function hideAllExceptSelected(selectedThought){
       console.log(targetLi);
       targetLi.style.display = "none";
     }
+  });
+}
+function hideButtonOnSelectedThought(){
+  console.log('hideButtonOnSelectedThought was set off')
+  thoughtLists.forEach(thoughtList => {
+    const targetLi = document.getElementById(thoughtList.id);
+    const seeResponseBtn = targetLi.querySelector('#selectResponseBtn');
+    seeResponseBtn.style.display = "none";
+    const deleteThoughtRespBtn = targetLi.querySelector('#deleteBtn');
+    deleteThoughtRespBtn.style.display = "none";
   });
 }
 
@@ -316,6 +333,8 @@ function toggleOff(){
 //TODO: Called from the seeResponseBtn in the renderThoughts function, the selected ID and Text are passed into the responseCard function. A for loop is used to iterate throught the thoughts and another for loop iterates throught the response of that thought. The response name is then passed into the modal. Modal is created using DOM
 function responseCard(selectedId, selectedText){
   console.log("responseCard was set off");
+  console.log(selectedId);
+  console.log(selectedText);
   //loops throught thoughts
   for (var i =0; i<thoughtLists.length; i++){
     if(thoughtLists[i].name === selectedText){
