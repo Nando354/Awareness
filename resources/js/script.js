@@ -186,6 +186,7 @@ function hideAllExceptSelected(selectedThought){
     }
   });
 }
+//Function hides the See Response and Delete buttons on the selected thought when See Response button is clicked
 function hideButtonOnSelectedThought(){
   console.log('hideButtonOnSelectedThought was set off')
   thoughtLists.forEach(thoughtList => {
